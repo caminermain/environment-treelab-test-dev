@@ -1,0 +1,34 @@
+jenkins-x-platform:
+  PipelineSecrets:
+    DockerConfig: |-
+      {
+        "credsStore": "ecr-login"
+      }
+  chartmuseum:
+    nodeSelector:
+      service: jx
+  docker-registry:
+    enabled: false
+  jenkins:
+    Master:
+      NodeSelector:
+        service: jx
+  jenkins-x-platform:
+    PipelineSecrets:
+      DockerConfig: |-
+        {
+          "credsStore": "ecr-login"
+        }
+    chartmuseum:
+      nodeSelector:
+        service: jx
+    docker-registry:
+      enabled: false
+    jenkins:
+      Master:
+        NodeSelector:
+          service: jx
+    postinstalljob:
+      enabled: "true"
+  postinstalljob:
+    enabled: "true"
